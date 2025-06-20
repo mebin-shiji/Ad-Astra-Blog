@@ -34,7 +34,7 @@ export default function ThemeToggle() {
     return (
         <button
             onClick={() => setIsDark(!isDark)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg ${isDark
+            className={`flex items-center gap-2 px-4 py-1.5 rounded-lg ${isDark
                     ? "bg-slate-600 hover:bg-gray-700 text-yellow-400"
                     : "bg-slate-200 hover:bg-slate-200 text-fg-primary"
                 }`}
@@ -53,7 +53,7 @@ export default function ThemeToggle() {
                     <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                 </svg>
             )}
-            <span className={`text-sm font-bold text-fg-primary`}>
+            <span className={`text-sm font-bold text-fg-primary max-sm:hidden`}>
                 {isDark ? "LIGHT" : "DARK"}
             </span>
         </button>
