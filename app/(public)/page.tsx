@@ -1,4 +1,4 @@
-import ArticleCard from "./components/cards/article-card";
+import ArticleCard from "../components/cards/article-card";
 
 export default function Home() {
 
