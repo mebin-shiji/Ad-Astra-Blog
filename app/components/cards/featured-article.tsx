@@ -18,7 +18,7 @@ export default function FeaturedArticle({
   return (
     <div className="flex flex-col sm:flex-row rounded-lg p-5 gap-10">
       {/* Featured article card - left side half card */}
-      <div className="relative overflow-hidden bg-secondary text-fg-secondary xl:w-1/2 rounded-lg">
+      <div className="relative overflow-hidden bg-muted text-fg-secondary xl:w-1/2 rounded-lg">
         {/* Featured tag */}
         <div className="flex justify-center absolute top-4 z-10 bg-highlight text-secondary text-base font-extrabold px-4 sm:px-10 py-1 rounded-md shadow-md">
           <Image
@@ -31,27 +31,29 @@ export default function FeaturedArticle({
           FEATURED
         </div>
 
-        <img
+        <Image
           className="w-full h-70 object-cover"
           src={featuredArticle.imageUrl}
           alt={featuredArticle.title}
+          width={600}
+          height={800}
         />
         <div className="px-6 py-4">
           <Link
             href={`/articles/${featuredArticle.title}`}
-            className="font-bold text-3xl mb-2 text-fg-secondary hover:text-highlight"
+            className="font-bold text-3xl mb-2 text-fg-primary hover:text-highlight"
           >
             {featuredArticle.title}
           </Link>
-          <p className="text-fg-secondary pt-2 opacity-80 text-lg">
+          <p className="text-fg-primary pt-2 opacity-80 font-medium text-lg">
             {featuredArticle.description}
           </p>
           <div className="mt-4 opacity-60 align-bottom">
-            <span className="text-fg-secondary text-base">
+            <span className="text-fg-primary font-medium text-base">
               {featuredArticle.author}
             </span>
-            <span className="text-fg-secondary text-base mx-2">•</span>
-            <span className="text-fg-secondary text-base">
+            <span className="text-fg-primary font-medium text-base mx-2">•</span>
+            <span className="text-fg-primary font-medium text-base">
               {featuredArticle.date.toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
@@ -63,7 +65,7 @@ export default function FeaturedArticle({
       </div>
 
       {/* Sub articles list - right side rows */}
-      <div className="rounded-lg overflow-hidden bg-secondary min-h-100 text-fg-secondary w-1/2 hidden xl:block">
+      <div className="rounded-lg overflow-hidden bg-muted min-h-100 w-1/2 hidden xl:block">
         {subArticles.map((article) => (
           <ArticleRow
             key={article.id}

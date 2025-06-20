@@ -7,3 +7,10 @@ export type Article = {
     date: Date;
     featured?: boolean;
 }
+
+export type ArticleDetails = {
+    id: number;
+    title: string;
+    content: string;
+    imageUrl: string;
+}

@@ -100,13 +100,13 @@ export default function Home() {
 
   return (
     <>
-      <section className="bg-secondary text-fg-secondary rounded-lg shadow-lg mt-10">
+      <section className="bg-muted rounded-lg shadow-lg mt-10">
         {featuredArticle && (
           <FeaturedArticle featuredArticles={featuredArticle} />
         )}
       </section>
 
-      <section className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 bg-primary text-fg-primary mt-5">
+      <section className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 bg-primary mt-5">
         {articles.map((article, index) => (
           <ArticleCard
             key={article.id}

@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Logo from "../icons/logo";
 import ThemeToggle from "./theme-toggle";
-import Link from "next/link";
+import NavLogo from "./nav-logo";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +21,7 @@ export default function Nav() {
     { href: "/tech", label: "TECH" },
     { href: "/space", label: "SPACE" },
     { href: "/politics", label: "POLITICS" },
+    { href: "/satire", label: "SATIRE" },
     { href: "/nature", label: "MORE" },
   ];
 
@@ -31,12 +31,7 @@ export default function Nav() {
     >
       <div className="flex items-center h-15 px-4">
         {/* Logo - Left side */}
-        <Link href="/" className="flex items-center flex-shrink-0 lg:flex-1">
-          <Logo className="w-12 h-12 lg:hidden" />
-          <span className="text-lg pl-1 font-bold lg:hidden max-sm:hidden">
-            AD ASTRA BLOG
-          </span>
-        </Link>
+        <NavLogo/>
 
         {/* Desktop Navigation - Center */}
         <div className="hidden lg:flex justify-center flex-1 gap-8">
@@ -75,11 +70,7 @@ export default function Nav() {
           {/* Mobile menu button */}
           <button
             onClick={toggleMenu}
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-200 flex-shrink-0 ${
-              isDarkMode
-                ? "bg-gray-800 hover:bg-gray-700"
-                : "bg-gray-100 hover:bg-gray-200"
-            }`}
+            className="lg:hidden p-2 rounded-lg transition-colors duration-200 flex-shrink-0 bg-primary/50 hover:bg-accent/40"
             aria-label="Toggle menu"
           >
             <svg
@@ -111,23 +102,17 @@ export default function Nav() {
       {/* Mobile Navigation Menu */}
       <div
         className={`xl:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          isMenuOpen ? "max-h-108 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div
-          className={`py-4 space-y-2 border-t ${
-            isDarkMode ? "border-gray-700" : "border-gray-200"
-          }`}
+          className="py-4 space-y-2 border-t border-accent"
         >
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={`block px-4 py-3 text-lg font-bold rounded-lg transition-colors duration-200 ${
-                isDarkMode
-                  ? "hover:bg-gray-800 hover:text-yellow-400"
-                  : "hover:bg-gray-100 hover:text-blue-600"
-              }`}
+              className="block text-center px-4 py-3 text-lg font-bold rounded-lg transition-colors duration-200 text-fg-secondary hover:text-highlight hover:bg-highlight/2.5"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.label}
@@ -135,9 +120,7 @@ export default function Nav() {
           ))}
           <a
             href="/subscribe"
-            className={`block px-4 py-3 text-lg font-bold text-red-600 rounded-lg transition-colors duration-200 ${
-              isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-100"
-            } hover:text-red-400`}
+            className="block text-center px-4 py-3 text-lg font-bold text-red-600 rounded-lg transition-colors duration-200 hover:text-red-400 hover:bg-red-400/2.5"
             onClick={() => setIsMenuOpen(false)}
           >
             SUBSCRIBE
