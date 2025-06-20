@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-secondary);
+  --color-fg-primary: var(--text-primary);
+  --color-fg-secondary: var(--text-secondary);
+  --color-highlight: var(--text-highlight);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-primary: oklch(19.754% 0.02076 271.477);
+    --bg-secondary: oklch(30.041% 0.0418 261.287);
+    --text-primary: oklch(96.7% 0.001 286.375);
+    --text-secondary: oklch(96.7% 0.001 286.375);
+    --text-highlight: oklch(85.2% 0.199 91.936);
+  }
+
+  .light-theme {
+    --bg-primary: oklch(96.7% 0.001 286.375);
+    --bg-secondary: oklch(24.399% 0.05007 266.302);
+    --text-primary: oklch(20.8% 0.042 265.755);
+    --text-secondary: oklch(96.7% 0.001 286.375);
+    --text-highlight: oklch(85.2% 0.199 91.936);
   }
 }
 
+@font-face {
+  font-family: 'Oxanium';
+  src: url('../public/fonts/Oxanium.ttf') format('truetype');
+  font-weight: 200 300 400 500 600 700 800;
+}
+
+@font-face {
+  font-family: 'Changa';
+  src: url('../public/fonts/Changa.ttf') format('truetype');
+  font-weight: 200 300 400 500 600 700 800;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../public/fonts/Roboto.ttf') format('truetype');
+  font-weight: 100 200 300 400 500 600 700 800 900;
+}
+
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Oxanium', 'Changa', 'Roboto', Arial, sans-serif;
 }
