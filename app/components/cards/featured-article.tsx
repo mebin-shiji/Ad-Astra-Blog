@@ -11,9 +11,9 @@ export default function FeaturedArticle({
   const featuredArticle = featuredArticles.sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   )[0];
-  const subArticles = featuredArticles.filter(
-    (article) => article.id !== featuredArticle.id
-  );
+  const subArticles = featuredArticles
+    .filter((article) => article.id !== featuredArticle.id)
+    .splice(0, 4);
 
   return (
     <div className="flex flex-col sm:flex-row rounded-lg p-5 gap-10">
@@ -52,7 +52,9 @@ export default function FeaturedArticle({
             <span className="text-fg-primary font-medium text-base">
               {featuredArticle.author}
             </span>
-            <span className="text-fg-primary font-medium text-base mx-2">•</span>
+            <span className="text-fg-primary font-medium text-base mx-2">
+              •
+            </span>
             <span className="text-fg-primary font-medium text-base">
               {featuredArticle.date.toLocaleDateString("en-US", {
                 year: "numeric",

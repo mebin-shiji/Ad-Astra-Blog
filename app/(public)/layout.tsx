@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Header from "../components/header/header";
 import Nav from "../components/nav/nav";
+import ThemeBackgroundTop from "../components/background/background-image-top";
+import ThemeBackgroundBottom from "../components/background/background-image-bottom";
+import Image from "next/image";
 
 
 export const metadata: Metadata = {
@@ -16,14 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased`}
-      >
+      <body className={`antialiased relative`}>
+        <ThemeBackgroundTop/>
         <Header />
         <Nav />
         <div className="mx-4 sm:mx-5 lg:mx-10 xl:mx-20 2xl:mx-40">
-        {children}
+          {children}
         </div>
+        <ThemeBackgroundBottom/>       
       </body>
     </html>
   );

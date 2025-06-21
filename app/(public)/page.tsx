@@ -95,6 +95,34 @@ export default function Home() {
       date: new Date("2023-10-10"),
       featured: false,
     },
+     {
+      id: 11,
+      title: "The Evolution of Spacecraft",
+      description: "A look at how spacecraft have evolved over the decades.",
+      imageUrl: "https://picsum.photos/600/800",
+      author: "Emma Thompson",
+      date: new Date("2023-10-07"),
+      featured: true,
+    },
+    {
+      id: 12,
+      title: "The Science of Black Holes",
+      description: "Understanding the enigmatic nature of black holes.",
+      imageUrl: "https://picsum.photos/600/800",
+      author: "Frank Miller",
+      date: new Date("2023-10-08"),
+      featured: true,
+    },
+    {
+      id: 13,
+      title: "Advancements in Renewable Energy",
+      description:
+        "Exploring the latest innovations in renewable energy sources.",
+      imageUrl: "https://picsum.photos/600/800",
+      author: "Grace Lee",
+      date: new Date("2023-10-09"),
+      featured: false,
+    }
   ];
   const featuredArticle = articles.filter((article) => article.featured);
 
@@ -106,7 +134,7 @@ export default function Home() {
         )}
       </section>
 
-      <section className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 bg-primary mt-5">
+      <section className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 mt-5 bg-transparent">
         {articles.map((article, index) => (
           <ArticleCard
             key={article.id}
