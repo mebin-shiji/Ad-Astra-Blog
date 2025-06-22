@@ -4,8 +4,8 @@ import Header from "../components/header/header";
 import Nav from "../components/nav/nav";
 import ThemeBackgroundTop from "../components/background/background-image-top";
 import ThemeBackgroundBottom from "../components/background/background-image-bottom";
-import Image from "next/image";
-
+import { ThemeProvider } from "next-themes";
+import { type ThemeProviderProps } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Ad Astra Blog",
@@ -17,16 +17,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeProviderProps: ThemeProviderProps = {
+    attribute: "data-theme",
+    defaultTheme: "system",
+    enableSystem: true,
+    disableTransitionOnChange: true,
+  };
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`antialiased relative`}>
-        <ThemeBackgroundTop/>
-        <Header />
-        <Nav />
-        <div className="mx-4 sm:mx-5 lg:mx-10 xl:mx-20 2xl:mx-40">
-          {children}
-        </div>
-        <ThemeBackgroundBottom/>       
+        <ThemeProvider {...themeProviderProps}>
+          <ThemeBackgroundTop />
+          <Header />
+          <Nav />
+          <div className="mx-4 sm:mx-5 lg:mx-10 xl:mx-20 2xl:mx-40">
+            {children}
+          </div>
+          <ThemeBackgroundBottom />
+        </ThemeProvider>
       </body>
     </html>
   );

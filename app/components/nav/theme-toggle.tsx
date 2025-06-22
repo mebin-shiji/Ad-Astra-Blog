@@ -1,46 +1,39 @@
 'use client';
 
+import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const [isDark, setIsDark] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  // Set theme based on localStorage on first load
   useEffect(() => {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = savedTheme === 'dark' || (
-            !savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches
-        );
-
-    setIsDark(prefersDark);
-    // Apply the correct class based on theme
-    if (prefersDark) {
-            document.documentElement.classList.remove('light-theme');
-    } else {
-            document.documentElement.classList.add('light-theme');
-    }
+    setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (isDark) {
-            document.documentElement.classList.remove('light-theme');
-            localStorage.setItem('theme', 'dark');
-    } else {
-            document.documentElement.classList.add('light-theme');
-            localStorage.setItem('theme', 'light');
-    }
-
-    // Dispatch custom event to notify other components
-    window.dispatchEvent(
-      new CustomEvent('themechange', {
-        detail: { isDark },
-      })
+  if (!mounted) {
+    // Return a placeholder button during SSR
+    return (
+      <button
+        className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-primary/50 opacity-50"
+        disabled
+        aria-label="Toggle theme"
+      >
+        <div className="w-6 h-6" />
+        <span className="text-sm font-bold max-sm:hidden">THEME</span>
+      </button>
     );
-  }, [isDark]);
+  }
+
+  const isDark = resolvedTheme === 'dark';
+
+  const toggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
+  };
 
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
+      onClick={toggleTheme}
       className={`flex items-center gap-2 px-4 py-1.5 rounded-lg transition-colors duration-200 ${
         isDark
           ? "bg-primary/50 hover:bg-accent/50"
@@ -61,7 +54,7 @@ export default function ThemeToggle() {
           <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
         </svg>
       )}
-      <span className={`text-sm font-bold text-fg-primary max-sm:hidden`}>
+      <span className="text-sm font-bold text-fg-primary max-sm:hidden">
         {isDark ? "LIGHT" : "DARK"}
       </span>
     </button>
