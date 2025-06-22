@@ -8,6 +8,7 @@
   --color-fg-primary: var(--text-primary);
   --color-fg-secondary: var(--text-secondary);
   --color-highlight: var(--text-highlight);
+  --color-highlight-secondary: var(--text-highlight-secondary)
 }
 
 /* Default light theme */
@@ -19,7 +20,8 @@
     --surface-accent: oklch(36.286% 0.05297 266.59);
     --text-primary: oklch(20.8% 0.042 265.755);
     --text-secondary: oklch(96.7% 0.001 286.375);
-    --text-highlight: oklch(85.2% 0.199 91.936);
+    --text-highlight-secondary: oklch(85.2% 0.199 91.936);
+    --text-highlight: oklch(62.876% 0.11057 93.809);
   }
 
   [data-theme="dark"] {
@@ -30,6 +32,7 @@
     --text-primary: oklch(93.178% 0.01758 285.973);
     --text-secondary: oklch(96.7% 0.001 286.375);
     --text-highlight: oklch(85.2% 0.199 91.936);
+    --text-highlight-secondary: oklch(85.2% 0.199 91.936);
   }
 }
 

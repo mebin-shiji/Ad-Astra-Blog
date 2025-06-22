@@ -1,16 +1,25 @@
-export type Article = {
+export interface Author {
+    id: number;
+    name: string;
+}
+
+export interface AuthorDetails extends Author {
+    bio: string;
+    imageUrl: string;
+}
+
+export interface Article {
     id: number;
     title: string;
     description: string;
     imageUrl: string;
-    author: string;
+    author: Author;
     date: Date;
     featured?: boolean;
 }
 
-export type ArticleDetails = {
-    id: number;
-    title: string;
+export interface ArticleDetails extends Article {
     content: string;
-    imageUrl: string;
+    author: AuthorDetails;
 }
+

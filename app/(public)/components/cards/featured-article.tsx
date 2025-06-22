@@ -20,7 +20,7 @@ export default function FeaturedArticle({
       {/* Featured article card - left side half card */}
       <div className="relative overflow-hidden bg-muted text-fg-secondary xl:w-1/2 rounded-lg">
         {/* Featured tag */}
-        <div className="flex justify-center absolute top-4 z-10 bg-highlight text-secondary text-base font-extrabold px-4 sm:px-10 py-1 rounded-md shadow-md">
+        <div className="flex justify-center absolute top-4 z-10 bg-highlight-secondary text-secondary text-base font-extrabold px-4 sm:px-10 py-1 rounded-md shadow-md">
           <Image
             src="/icons/star.svg"
             height={16}
@@ -31,13 +31,15 @@ export default function FeaturedArticle({
           FEATURED
         </div>
 
-        <Image
-          className="w-full h-70 object-cover"
-          src={featuredArticle.imageUrl}
-          alt={featuredArticle.title}
-          width={600}
-          height={800}
-        />
+        <Link href={`/article/${featuredArticle.id}`}>
+          <Image
+            className="w-full h-70 object-cover"
+            src={featuredArticle.imageUrl}
+            alt={featuredArticle.title}
+            width={600}
+            height={800}
+          />
+        </Link>
         <div className="px-6 py-4">
           <Link
             href={`/articles/${featuredArticle.title}`}
@@ -50,7 +52,7 @@ export default function FeaturedArticle({
           </p>
           <div className="mt-4 opacity-60 align-bottom">
             <span className="text-fg-primary font-medium text-base">
-              {featuredArticle.author}
+              {featuredArticle.author.name}
             </span>
             <span className="text-fg-primary font-medium text-base mx-2">
               •
@@ -69,15 +71,16 @@ export default function FeaturedArticle({
       {/* Sub articles list - right side rows */}
       <div className="rounded-lg overflow-hidden bg-muted min-h-100 w-1/2 hidden xl:block">
         {subArticles.map((article) => (
-          <ArticleRow
-            key={article.id}
-            id={article.id}
-            title={article.title}
-            description={article.description}
-            imageUrl={article.imageUrl}
-            author={article.author}
-            date={article.date}
-          />
+          <Link href={`/article/${article.id}`} key={article.id}>
+            <ArticleRow
+              id={article.id}
+              title={article.title}
+              description={article.description}
+              imageUrl={article.imageUrl}
+              author={article.author}
+              date={article.date}
+            />
+          </Link>
         ))}
       </div>
     </div>

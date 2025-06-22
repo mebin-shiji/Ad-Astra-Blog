@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import Header from "../components/header/header";
-import Nav from "../components/nav/nav";
-import ThemeBackgroundTop from "../components/background/background-image-top";
-import ThemeBackgroundBottom from "../components/background/background-image-bottom";
+import Header from "./components/header/header";
+import Nav from "./components/nav/nav";
+import ThemeBackgroundTop from "./components/background/background-image-top";
+import ThemeBackgroundBottom from "./components/background/background-image-bottom";
 import { ThemeProvider } from "next-themes";
 import { type ThemeProviderProps } from "next-themes";
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`antialiased relative`}>
+      <body className={`antialiased relative min-h-[200vh]`}>
         <ThemeProvider {...themeProviderProps}>
           <ThemeBackgroundTop />
           <Header />

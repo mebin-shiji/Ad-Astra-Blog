@@ -39,7 +39,7 @@ export default function Nav() {
             <a
               key={link.label}
               href={link.href}
-              className="text-base font-bold transition-colors duration-200 hover:text-highlight whitespace-nowrap"
+              className="text-base font-bold transition-colors duration-200 hover:text-highlight-secondary whitespace-nowrap"
             >
               {link.label}
             </a>
@@ -58,7 +58,7 @@ export default function Nav() {
           <div className="hidden h-5 w-[1px] bg-gray-400 lg:block"></div>
           <a
             href="/signin"
-            className="text-base font-bold text-fg-secondary hover:text-highlight transition-colors duration-200 whitespace-nowrap"
+            className="text-base font-bold text-fg-secondary hover:text-highlight-secondary transition-colors duration-200 whitespace-nowrap"
           >
             SIGN IN
           </a>
@@ -112,7 +112,7 @@ export default function Nav() {
             <a
               key={link.label}
               href={link.href}
-              className="block text-center px-4 py-3 text-lg font-bold rounded-lg transition-colors duration-200 text-fg-secondary hover:text-highlight hover:bg-highlight/2.5"
+              className="block text-center px-4 py-3 text-lg font-bold rounded-lg transition-colors duration-200 text-fg-secondary hover:text-highlight-secondary hover:bg-highlight/2.5"
               onClick={() => setIsMenuOpen(false)}
             >
               {link.label}

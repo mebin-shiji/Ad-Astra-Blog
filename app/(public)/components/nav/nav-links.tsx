@@ -14,7 +14,7 @@ export default function NavLinks() {
                 <a
                     key={link.label}
                     href={link.href}
-                    className="text-lg font-bold transition-colors duration-200 hover:text-highlight"
+                    className="text-lg font-bold transition-colors duration-200 hover:text-highlight-secondary"
                 >
                     {link.label}
                 </a>
