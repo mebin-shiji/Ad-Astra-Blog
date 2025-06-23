@@ -1,8 +1,7 @@
-import ArticleCard from "./components/article/article-card";
-import FeaturedArticle from "./components/article/featured-article";
+import FeaturedArticle from "./components/cards/featured-article";
 import { articles } from "../_utils/test";
 import { notFound } from "next/navigation";
-import ArticleGrid from "./components/article/article-grid";
+import ArticleGrid from "./components/cards/article-grid";
 export default function Home() {
   const featuredArticles = articles.filter((article) => article.featured);
 

@@ -1,7 +1,8 @@
 import { authorDetails, articles } from "@/app/_utils/test";
 import { notFound } from "next/navigation";
 import AuthorHeader from "../components/author-header";
-import ArticleGrid from "../../components/article/article-grid";
+import ArticleGrid from "../../components/cards/article-grid";
+import InlineHeadingCard from "../../components/cards/inline-heading-card";
 export default async function AuthorPage({
   params,
 }: {
@@ -28,11 +29,7 @@ export default async function AuthorPage({
         imageUrl={author.imageUrl}
       />
 
-      <div className="flex justify-center items-center bg-muted mt-5 h-15 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold">
-          RECENT ARTICLES BY {author.name.toLocaleUpperCase()}
-        </h1>
-      </div>
+      <InlineHeadingCard heading={`RECENT ARTICLES BY ${author.name.toLocaleUpperCase()}`}/>
 
       <ArticleGrid articles={authorArticles} />
     </div>

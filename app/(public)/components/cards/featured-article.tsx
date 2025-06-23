@@ -1,7 +1,7 @@
-import { Article } from "@/app/_utils/article";
 import Link from "next/link";
 import ArticleRow from "./article-row";
 import Image from "next/image";
+import { Article } from "@/interfaces/article";
 
 export default function FeaturedArticle({
   featuredArticles,

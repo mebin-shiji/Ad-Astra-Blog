@@ -1,4 +1,4 @@
-import { Article } from "@/app/_utils/article";
+import { Article } from "@/interfaces/article";
 import ArticleCard from "./article-card";
 
 export default function ArticleGrid({ articles }: { articles: Article[] }) {

@@ -1,37 +1,38 @@
-import { Article } from "@/app/_utils/article";
 import Link from "next/link";
 import Image from "next/image";
+import { Article } from "@/interfaces/article";
 
-export default function ArticleCard({
+export default function ArticleRow({
   id,
   title,
-  description,
   imageUrl,
+  description,
   author,
   date,
+  categoryKey
 }: Article) {
   return (
-    <div className="rounded-lg overflow-hidden shadow-lg bg-muted min-h-100">
+    <div className="flex items-center py-4">
       <Link href={`/article/${id}`}>
         <Image
-          className="w-full h-70 object-cover"
+          className="h-20 w-20 flex-shrink-0 object-cover rounded-lg mr-4"
           src={imageUrl}
           alt={title}
           width={600}
-          height={800}
+          height={600}
         />
       </Link>
-      <div className="px-6 py-4">
+      <div>
         <Link
           href={`/article/${id}`}
-          className="font-bold text-xl mb-2 text-fg-primary hover:text-highlight"
+          className="font-bold text-xl text-fg-primary hover:text-highlight"
         >
           {title}
         </Link>
-        <p className="text-fg-primary font-medium pt-2 opacity-80 text-base">
+        <p className="text-fg-primary font-medium pt-1 text-base opacity-80">
           {description}
         </p>
-        <div className="mt-4 opacity-60 align-bottom">
+        <div className="mt-2 opacity-60">
           <span className="text-fg-primary font-medium text-sm">
             {author.name}
           </span>

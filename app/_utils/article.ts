@@ -22,8 +22,6 @@ export interface Article {
 
 export interface ArticleDetails extends Article {
     content: string;
-    author: AuthorDetails;
-    category: Category;
 }
 
 export interface Category {

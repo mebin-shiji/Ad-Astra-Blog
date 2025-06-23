@@ -1,4 +1,4 @@
-import { Author } from "@/app/_utils/article";
+import { Author } from "@/interfaces/author";
 import Image from "next/image";
 import Link from "next/link";
 

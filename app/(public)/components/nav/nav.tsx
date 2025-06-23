@@ -1,28 +1,25 @@
-"use client";
+"use client"
 
-import { useState } from "react";
 import ThemeToggle from "./theme-toggle";
 import NavLogo from "./nav-logo";
+import NavLinks from "./nav-links";
+import { useState } from "react";
+import { NavLink } from "@/interfaces/nav";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const toggleTheme = (): void => {
-    setIsDarkMode(!isDarkMode);
-    // Add logic here to update your app's theme context or document class
-  };
 
- const navLinks = [
-        { href: "/", label: "HOME" },
-        { href: "/category/tech", label: "TECH" },
-        { href: "/category/space", label: "SPACE" },
-        { href: "/category/politics", label: "POLITICS" },
-        { href: "/category", label: "BROWSE" }
-    ];
+  const navLinks: NavLink[] = [
+    { href: "/", label: "HOME" },
+    { href: "/category/tech", label: "TECH" },
+    { href: "/category/space", label: "SPACE" },
+    { href: "/category/politics", label: "POLITICS" },
+    { href: "/category", label: "BROWSE" },
+  ];
 
   return (
     <nav
@@ -30,20 +27,10 @@ export default function Nav() {
     >
       <div className="flex items-center h-15 px-4">
         {/* Logo - Left side */}
-        <NavLogo/>
+        <NavLogo />
 
         {/* Desktop Navigation - Center */}
-        <div className="hidden lg:flex justify-center flex-1 gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-base font-bold transition-colors duration-200 hover:text-highlight-secondary whitespace-nowrap"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
+        <NavLinks navLinks={navLinks} />
 
         {/* Right side - Theme toggle and mobile menu button */}
         <div className="flex items-center justify-end space-x-4 flex-1 ml-5">
@@ -104,9 +91,7 @@ export default function Nav() {
           isMenuOpen ? "max-h-108 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div
-          className="py-4 space-y-2 border-t border-accent"
-        >
+        <div className="py-4 space-y-2 border-t border-accent">
           {navLinks.map((link) => (
             <a
               key={link.label}
