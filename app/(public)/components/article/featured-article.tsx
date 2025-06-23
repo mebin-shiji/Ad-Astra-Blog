@@ -42,7 +42,7 @@ export default function FeaturedArticle({
         </Link>
         <div className="px-6 py-4">
           <Link
-            href={`/articles/${featuredArticle.title}`}
+            href={`/article/${featuredArticle.id}`}
             className="font-bold text-3xl mb-2 text-fg-primary hover:text-highlight"
           >
             {featuredArticle.title}
@@ -71,16 +71,16 @@ export default function FeaturedArticle({
       {/* Sub articles list - right side rows */}
       <div className="rounded-lg overflow-hidden bg-muted min-h-100 w-1/2 hidden xl:block">
         {subArticles.map((article) => (
-          <Link href={`/article/${article.id}`} key={article.id}>
-            <ArticleRow
-              id={article.id}
-              title={article.title}
-              description={article.description}
-              imageUrl={article.imageUrl}
-              author={article.author}
-              date={article.date}
-            />
-          </Link>
+          <ArticleRow
+            key={article.id}
+            id={article.id}
+            title={article.title}
+            description={article.description}
+            imageUrl={article.imageUrl}
+            author={article.author}
+            date={article.date}
+            categoryKey={article.categoryKey}
+          />
         ))}
       </div>
     </div>

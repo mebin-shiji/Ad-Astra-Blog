@@ -1,11 +1,14 @@
-import { Article } from "../_utils/article";
-import ArticleCard from "./components/cards/article-card";
-import FeaturedArticle from "./components/cards/featured-article";
-import {articles} from "../_utils/test";
+import ArticleCard from "./components/article/article-card";
+import FeaturedArticle from "./components/article/featured-article";
+import { articles } from "../_utils/test";
+import { notFound } from "next/navigation";
+import ArticleGrid from "./components/article/article-grid";
 export default function Home() {
- 
-
   const featuredArticles = articles.filter((article) => article.featured);
+
+  if (featuredArticles.length === 0 && articles.length === 0) {
+    return notFound();
+  }
 
   return (
     <>
@@ -15,19 +18,7 @@ export default function Home() {
         )}
       </section>
 
-      <section className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 mt-5 bg-transparent">
-        {articles.map(article => (
-          <ArticleCard
-            key={article.id}
-            id={article.id}
-            title={article.title}
-            description={article.description}
-            imageUrl={article.imageUrl}
-            author={article.author}
-            date={article.date}
-          />
-        ))}
-      </section>
+      <ArticleGrid articles={articles} />
     </>
   );
 }

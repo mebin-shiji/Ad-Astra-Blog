@@ -16,14 +16,13 @@ export default function Nav() {
     // Add logic here to update your app's theme context or document class
   };
 
-  const navLinks = [
-    { href: "/", label: "HOME" },
-    { href: "/tech", label: "TECH" },
-    { href: "/space", label: "SPACE" },
-    { href: "/politics", label: "POLITICS" },
-    { href: "/satire", label: "SATIRE" },
-    { href: "/nature", label: "MORE" },
-  ];
+ const navLinks = [
+        { href: "/", label: "HOME" },
+        { href: "/category/tech", label: "TECH" },
+        { href: "/category/space", label: "SPACE" },
+        { href: "/category/politics", label: "POLITICS" },
+        { href: "/category", label: "BROWSE" }
+    ];
 
   return (
     <nav

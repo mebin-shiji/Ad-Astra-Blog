@@ -1,4 +1,3 @@
-import ArticleCard from "../../components/cards/article-card";
 import ArticleContent from "../components/article-content";
 import ArticleHeader from "../components/article-header";
 import { articleDetails } from "@/app/_utils/test";

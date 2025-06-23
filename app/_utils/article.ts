@@ -4,6 +4,7 @@ export interface Author {
 }
 
 export interface AuthorDetails extends Author {
+    title: string;
     bio: string;
     imageUrl: string;
 }
@@ -16,10 +17,19 @@ export interface Article {
     author: Author;
     date: Date;
     featured?: boolean;
+    categoryKey: string;
 }
 
 export interface ArticleDetails extends Article {
     content: string;
     author: AuthorDetails;
+    category: Category;
+}
+
+export interface Category {
+    key: string;
+    name: string;
+    description: string
+    imageUrl: string;
 }
 

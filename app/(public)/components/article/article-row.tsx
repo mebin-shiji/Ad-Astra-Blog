@@ -9,6 +9,7 @@ export default function ArticleRow({
   description,
   author,
   date,
+  categoryKey
 }: Article) {
   return (
     <div className="flex items-center py-4">
